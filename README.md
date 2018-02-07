@@ -19,8 +19,8 @@ Compiled CSS and JavaScript minified files can be directly linked from [UNPKG](h
 Include both the Micron CSS and JavaScript files in the header section of your document.
 
 ```html
-<link href="https://unpkg.com/webkul-micron@1.1.1/dist/css/micron.min.css" type="text/css" rel="stylesheet">
-<script src="https://unpkg.com/webkul-micron@1.1.1/dist/script/micron.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/webkul-micron@1.1.3/dist/css/micron.min.css" type="text/css" rel="stylesheet">
+<script src="https://unpkg.com/webkul-micron@1.1.3/dist/script/micron.min.js" type="text/javascript" async></script>
 ```
 
 ## Package Managers
@@ -29,6 +29,11 @@ You can use either npm or bower to get the Micron.JS package.
 Copy and Paste the command below in your terminal to get package with npm -
 ```cli
 npm install webkul-micron
+```
+
+Load the package with the code below:
+```javascript
+const micron = require('webkul-micron');
 ```
 
 Copy and Paste the command below in your terminal to get package with bower -
@@ -40,7 +45,7 @@ bower install webkul-micron
 Micron JS is very easy and quick to use.
 
 ## Adding an Interaction
-Add the data-micron="interaction" attribute to the respective element and Voila! you are already there.
+Add the `data-micron="interaction"` attribute to the respective element and Voila! you are already there.
 
 **Example Code**
 
@@ -61,7 +66,7 @@ Micron Interactions defaults to ".45" seconds. Add the data-micron-duration="num
 Micron Interactions defaults to "ease-in-out". Add the data-micron-timing="@type" attribute to control the easing of the defined interaction.
 
 For now, `@type` only supports the easings mentioned below-
-  
+
 `linear`
 
 `ease-in`
@@ -70,7 +75,7 @@ For now, `@type` only supports the easings mentioned below-
 
 `ease-in-out`
 
-**Example Code**  
+**Example Code**
 
 ```html
 <a href="#!" class="button" data-micron="bounce" data-micron-timing="ease-in">Label</a>
@@ -82,7 +87,7 @@ Add `data-micron-bind="true"` & `data-micron-id="name"` to the defined triggerin
 **Example Code**
 
 ```html
-<a href="#!" class="button" data-micron="bounce" data-micron-bind="true" data-micron-id="me">Label</a> 
+<a href="#!" class="button" data-micron="bounce" data-micron-bind="true" data-micron-id="me">Label</a>
 <a href="#!" class="button" id="me">Binded</a>
 ```
 
@@ -106,7 +111,7 @@ Pass an argument with `type of ease` to `timing()` method.
 function myFunc(){
     micron.getEle("#me").interaction("bounce").duration(".45").timing("ease-out");
  }
- 
+
 //Call Interaction
 myFunc();
 ```
@@ -114,30 +119,29 @@ myFunc();
 # Interactions
 Currently, Micron.JS supports the interactions mentioned below, head back to the [homepage](https://webkul.github.io/micron) to see all interactions in the real action.
 
-`micron="shake"`
+`data-micron="shake"`
 
-`micron="fade"`
+`data-micron="fade"`
 
-`micron="jelly"`
+`data-micron="jelly"`
 
-`micron="bounce"`
+`data-micron="bounce"`
 
-`micron="tada"`
+`data-micron="tada"`
 
-`micron="groove"`
+`data-micron="groove"`
 
-`micron="swing"`
+`data-micron="swing"`
 
-`micron="squeeze"`
+`data-micron="squeeze"`
 
-`micron="flicker"`
+`data-micron="flicker"`
 
-`micron="jerk"`
+`data-micron="jerk"`
 
+`data-micron="blink"`
 
-`micron="blink"`
-
-`micron="pop"`
+`data-micron="pop"`
 
 # Customization
 You can even add your very own css interaction to Micron.JS.
@@ -153,15 +157,15 @@ Create a class with `.mjs-` prefix. Call the keyframe css animation inside it. U
 **Example Code**
 
 ```css
- //Define a Class
+ /*Define a Class*/
  .mjs-custom{
-    animation: custom-action;    
+    animation: custom-action;
  }
- 
+
  @keyframes custom-action{
-    from { . . . }    
-    to { . . . }    
- }    
+    from { . . . }
+    to { . . . }
+ }
 ```
 
 Now use interaction with `data-micron="custom"`
